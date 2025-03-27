@@ -1,0 +1,20 @@
+
+npm create vite@latest my-event-app --template react-ts
+cd my-event-app
+npm install
+
+
+npm install react-router-dom axios tailwindcss @tailwindcss/vite @reduxjs/toolkit react-redux react-hook-form @hookform/resolvers
+ yup react-hot-toast react-icons react-datepicker @types/react-datepicker react-loading-skeleton @tanstack/react-query
+
+
+
+react-router-dom	✅ ضروري	لإدارة الـ Routing
+axios	✅ ضروري	للتعامل مع API Requests
+react-hook-form ✅ ضروري	لإدارة النماذج بسهولة
+yup	✅ ضروري	للتحقق من صحة البيانات في النماذج
+react-hot-toast	✅ جيد جدًا	لإضافة إشعارات جميلة وسهلة
+react-icons	✅ جيد جدًا	لاستخدام الأيقونات بسهولة
+react-datepicker	✅ جيد جدًا	لاختيار التواريخ في إنشاء الأحداث
+@types/react-datepicker	✅ مفيد مع TypeScript	دعم TypeScript لـ react-datepicker
+react-loading-skeleton	✅ اختياري، لكن مفيد	لعرض تأثير Skeleton أثناء تحميل البيانات
