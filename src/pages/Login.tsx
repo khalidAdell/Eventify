@@ -48,6 +48,8 @@ const Login = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center p-4">
+      <title>Login - Eventify</title>
+
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 relative">
         {/* App Logo/Branding */}
         <div className="text-center mb-8">

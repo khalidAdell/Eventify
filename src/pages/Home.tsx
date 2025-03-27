@@ -71,6 +71,8 @@ const HomePage = () => {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-pink-50 to-rose-50 overflow-hidden">
+      <title>Home - Eventify</title>
+
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-24">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">

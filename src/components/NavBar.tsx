@@ -128,7 +128,9 @@ const NavBar = () => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 <MdAccountCircle className="w-8 h-8 text-gray-500" />
-                <span className="font-medium">{userData.name || "User"}</span>
+                <span className="font-medium capitalize">
+                  {userData.name || "User"}
+                </span>
               </div>
               <button
                 onClick={handleLogout}

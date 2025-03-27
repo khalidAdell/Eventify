@@ -92,7 +92,9 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans" dir="ltr">
+    <div className="min-h-screen bg-gray-50 font-sans">
+      <title>Contact - Eventify</title>
+
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Information Section */}

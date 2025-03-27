@@ -25,10 +25,7 @@ export const authService = {
   login: async (credentials: LoginCredentials): Promise<AuthResponse> => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (
-          credentials.email === "kadel2034@gmail.com" &&
-          credentials.password === "123456"
-        ) {
+        if (credentials.email && credentials.password === "123456") {
           resolve({
             token: "mock-token-123",
             user: {

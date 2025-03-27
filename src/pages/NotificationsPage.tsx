@@ -110,7 +110,9 @@ const NotificationsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans" dir="ltr">
+    <div className="min-h-screen bg-gray-50 font-sans">
+      <title>Notifications - Eventify</title>
+
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-xl shadow-md p-6">
           {/* Header */}

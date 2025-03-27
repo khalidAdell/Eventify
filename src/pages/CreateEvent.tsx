@@ -8,13 +8,13 @@ import {
   FaChevronRight,
   FaChevronLeft,
   FaPlus,
-  FaRegSave,
   FaEye,
   FaTimes,
 } from "react-icons/fa";
 import LocationStep from "../components/event-steps/LocationStep";
 import SettingStep from "../components/event-steps/SettingStep";
 import { FormData } from "../types/event";
+import { Link } from "react-router-dom";
 
 const CreateEventForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -52,12 +52,14 @@ const CreateEventForm = () => {
   const nextStep = () => {
     if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
+      window.scrollTo(0, 0);
     }
   };
 
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
+      window.scrollTo(0, 0);
     }
   };
 
@@ -432,18 +434,19 @@ const CreateEventForm = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      <title>Create Event - Eventify</title>
+
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Create New Event</h1>
           <div className="flex gap-2">
-            <button className="bg-white text-gray-600 py-2 px-4 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors flex items-center gap-2">
+            <Link
+              to={"/my-events"}
+              className="bg-white text-gray-600 py-2 px-4 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors flex items-center gap-2"
+            >
               <FaTimes />
               <span>Cancel</span>
-            </button>
-            <button className="bg-white text-gray-600 py-2 px-4 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors flex items-center gap-2">
-              <FaRegSave />
-              <span>Save as Draft</span>
-            </button>
+            </Link>
           </div>
         </div>
 

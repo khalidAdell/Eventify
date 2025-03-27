@@ -68,6 +68,8 @@ const PricingPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      <title>Pricing - Eventify</title>
+
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">

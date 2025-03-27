@@ -66,9 +66,10 @@ const Dashboard = () => {
     priority: "medium",
   });
 
+  const storedUser = localStorage.getItem("user");
+
   const userData = {
-    name: "Mohamed Ahmed",
-    image: "/api/placeholder/48/48",
+    name: storedUser ? JSON.parse(storedUser).name : "User",
     stats: {
       upcoming: 8,
       completed: 12,
@@ -260,9 +261,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans" dir="ltr">
+    <div className="min-h-screen bg-gray-50 font-sans">
+      <title>Dashboard - Eventify</title>
       <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Welcome Card & Quick Actions */}
         <div className="flex flex-col lg:flex-row gap-6 mb-8">
           {/* Welcome Card */}
           <div className="bg-white rounded-xl shadow-md p-6 flex-grow lg:max-w-md">
@@ -276,7 +277,7 @@ const Dashboard = () => {
                 <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-800">
+                <h1 className="text-xl font-bold text-gray-800 capitalize">
                   Welcome, {userData.name}
                 </h1>
                 <p className="text-gray-600">Have a great day!</p>
