@@ -10,7 +10,7 @@ export interface Event {
   location: string;
   address: string;
   privacy: "public" | "private" | "unlisted";
-  imageUrl: string | File;
+  imageUrl: string;
   attendees: number;
   maxAttendance: number;
   recurring?: boolean;
