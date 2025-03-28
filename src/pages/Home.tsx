@@ -6,6 +6,7 @@ import {
   FaSearch,
   FaCalendarDay,
   FaPlayCircle,
+  FaTimesCircle,
 } from "react-icons/fa";
 import EventCard from "../components/ui/EventCard";
 import { useEffect, useState } from "react";
@@ -13,6 +14,8 @@ import { Event } from "../types/event";
 
 const HomePage = () => {
   const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+  const [showDemoModal, setShowDemoModal] = useState(false);
+
   useEffect(() => {
     setUpcomingEvents([
       {
@@ -69,6 +72,14 @@ const HomePage = () => {
     ]);
   }, []);
 
+  const openDemoModal = () => {
+    setShowDemoModal(true);
+  };
+
+  const closeDemoModal = () => {
+    setShowDemoModal(false);
+  };
+
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-pink-50 to-rose-50 overflow-hidden">
       <title>Home - Eventify</title>
@@ -101,6 +112,7 @@ const HomePage = () => {
                 Start Free Trial
               </Link>
               <button
+                onClick={openDemoModal}
                 className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-pink-200 text-pink-600 rounded-xl font-semibold hover:border-pink-300 
                             transition-all flex items-center justify-center gap-2"
               >
@@ -139,14 +151,12 @@ const HomePage = () => {
           {/* Hero Image */}
           <div className="w-full lg:w-1/2 mt-8 lg:mt-0 px-4 sm:px-12 lg:px-0">
             <div className="relative rounded-3xl shadow-2xl transform hover:scale-[1.02] transition-all overflow-hidden">
-              {/* Responsive image handling */}
               <img
                 src="/images/hero.png"
                 alt="Event Management Dashboard"
                 className="w-full h-auto"
                 loading="lazy"
               />
-              {/* Decorative elements */}
               <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-pink-100 rounded-full opacity-70"></div>
               <div className="absolute -top-6 -right-6 w-16 h-16 bg-rose-100 rounded-full opacity-70"></div>
             </div>
@@ -211,7 +221,6 @@ const HomePage = () => {
           Upcoming Events
         </h2>
 
-        {/* Desktop - 3 columns, Tablet - 2 columns, Mobile - 1 column with scroll */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {upcomingEvents.map((event) => (
             <EventCard key={event.id} event={event} />
@@ -270,6 +279,50 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      {/* Demo Modal */}
+      {showDemoModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+          <div className="bg-white rounded-xl max-w-3xl w-full mx-auto shadow-2xl relative">
+            <button
+              onClick={closeDemoModal}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              <FaTimesCircle className="w-8 h-8" />
+            </button>
+
+            <div className="p-8 text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-pink-600">
+                Eventify Demo
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Experience the power of Eventify with our interactive demo video
+              </p>
+
+              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="/public/2025-03-27 13-14-36.mp4"
+                  title="Eventify Demo Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              <div className="mt-6 flex justify-center gap-4">
+                <button
+                  onClick={closeDemoModal}
+                  className="px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

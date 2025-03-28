@@ -10,9 +10,11 @@ export interface Event {
   location: string;
   address: string;
   privacy: "public" | "private" | "unlisted";
-  imageUrl: string;
+  imageUrl: string | File;
   attendees: number;
   maxAttendance: number;
+  recurring?: boolean;
+  recurringType?: string;
 }
 
 export interface FormData {

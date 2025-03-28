@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -39,9 +38,8 @@ interface InviteFormData {
   inviteMessage?: string;
 }
 
-const isEventCreator = false;
+const isEventCreator = true;
 
-// Email validation schema
 const inviteSchema = yup.object().shape({
   inviteEmails: yup
     .string()
@@ -54,8 +52,7 @@ const inviteSchema = yup.object().shape({
   inviteMessage: yup.string().optional(),
 });
 
-const SingleEventPage: React.FC = () => {
-  // State for registration and sharing
+const SingleEventPage = () => {
   const [isRegistered, setIsRegistered] = useState<boolean>(false);
   const [showShareModal, setShowShareModal] = useState<boolean>(false);
   const [showInviteModal, setShowInviteModal] = useState<boolean>(false);
@@ -78,7 +75,6 @@ const SingleEventPage: React.FC = () => {
     maxAttendance: "500",
   };
 
-  // Invite form handler with Yup validation
   const {
     register,
     handleSubmit,
@@ -114,12 +110,12 @@ const SingleEventPage: React.FC = () => {
     setShowShareModal(false);
   };
 
-  const shareOnTwitter = () => {
+  const shareOnX = () => {
     const text = encodeURIComponent(`Check out this event: ${event.title}`);
     window.open(
-      `https://twitter.com/intent/tweet?text=${text}&url=${window.location.href}`
+      `https://X.com/intent/tweet?text=${text}&url=${window.location.href}`
     );
-    toast.success("Event shared on Twitter");
+    toast.success("Event shared on X");
     setShowShareModal(false);
   };
 
@@ -196,10 +192,10 @@ const SingleEventPage: React.FC = () => {
                 Facebook
               </button>
               <button
-                onClick={shareOnTwitter}
-                className="flex-1 bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition"
+                onClick={shareOnX}
+                className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition"
               >
-                Twitter
+                X
               </button>
               <button
                 onClick={() => {
@@ -269,12 +265,21 @@ const SingleEventPage: React.FC = () => {
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-4">
-          <Link
-            to="/events"
-            className="text-pink-600 hover:text-pink-800 text-sm flex items-center"
-          >
-            &larr; Back to Events
-          </Link>
+          {isEventCreator ? (
+            <Link
+              to="/my-events"
+              className="text-pink-600 hover:text-pink-800 text-sm flex items-center"
+            >
+              &larr; Back to My Events
+            </Link>
+          ) : (
+            <Link
+              to="/events"
+              className="text-pink-600 hover:text-pink-800 text-sm flex items-center"
+            >
+              &larr; Back to Events
+            </Link>
+          )}
         </div>
         <div className="relative mb-8">
           <div className="h-48 md:h-96 w-full overflow-hidden rounded-xl">
